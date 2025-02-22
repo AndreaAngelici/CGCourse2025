@@ -101,26 +101,28 @@ int main(void)
         */
 
 
+        // car body
         r_cube.bind();
-        model_matrix = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, -2.f));
+        model_matrix = glm::scale( glm::mat4(1.f), glm::vec3(1.f, 0.5f, 1.f));
+        model_matrix = glm::translate( model_matrix, glm::vec3(0.f, 0.f, -2.f));
         glUniformMatrix4fv(basic_shader["uModel"], 1, GL_FALSE, &model_matrix[0][0]);
         glUniform1i(basic_shader["uShade"], 1);
 		glDrawElements(r_cube().mode, r_cube().count, r_cube().itype, NULL);
 
 
-        r_cyl.bind();
+        /*r_cyl.bind();
         model_matrix = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, -2.f));
         glUniformMatrix4fv(basic_shader["uModel"], 1, GL_FALSE, &model_matrix[0][0]);
         glUniform1i(basic_shader["uShade"], 1);
-        glDrawElements(r_cyl().mode, r_cyl().count, r_cyl().itype, NULL);
+        glDrawElements(r_cyl().mode, r_cyl().count, r_cyl().itype, NULL);*/
 
-        r_frame.bind();
-        glm::mat4 scaleframe_matrix = glm::scale(glm::mat4(1.0), glm::vec3(3, 3, 3));
-        model_matrix = model_matrix * scaleframe_matrix;
-        glUniformMatrix4fv(basic_shader["uModel"], 1, GL_FALSE, &model_matrix[0][0]);
-        glUniform1i(basic_shader["uShade"], 0);
-        //glDrawArrays(r_frame().mode, 0,r_frame().count);
-        glDrawArrays(GL_LINES,0,6);
+        //r_frame.bind();
+        //glm::mat4 scaleframe_matrix = glm::scale(glm::mat4(1.0), glm::vec3(3, 3, 3));
+        //model_matrix = model_matrix * scaleframe_matrix;
+        //glUniformMatrix4fv(basic_shader["uModel"], 1, GL_FALSE, &model_matrix[0][0]);
+        //glUniform1i(basic_shader["uShade"], 0);
+        ////glDrawArrays(r_frame().mode, 0,r_frame().count);
+        //glDrawArrays(GL_LINES,0,6);
 
 
 
